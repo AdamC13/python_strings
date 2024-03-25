@@ -1,0 +1,40 @@
+reviews = [
+    "This product is really good. I'm impressed with its quality.",
+    "The performance of this product is excellent. Highly recommended!",
+    "I had a bad experience with this product. It didn't meet my expectations.",
+    "Poor quality product. Wouldn't recommend it to anyone.",
+    "The product was average. Nothing extraordinary about it."
+]
+
+
+positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb", "amazing"]
+negative_words = ["bad", "poor", "terrible", "horrible", "awful", "disappointing", "subpar"]
+
+
+for i in range(len(reviews)):
+    reviews[i] = reviews[i].lower()
+    for word in positive_words:
+        reviews[i] = reviews[i].replace(word, word.upper())
+    for word in negative_words:
+        reviews[i] = reviews[i].replace(word, word.upper())
+    print(reviews[i])
+
+pc = 0
+nc = 0
+for i in range(len(reviews)):
+    for word in positive_words:
+        word = word.upper()
+        pc += reviews[i].count(word)
+    for word in negative_words:
+        word = word.upper()
+        nc += reviews[i].count(word)
+print(pc)
+print(nc)
+    
+for i in range(len(reviews)):
+    review = reviews[i][28:].split(" ")
+    reviews[i] = reviews[i].replace(reviews[i][28:], "")
+    reviews[i] += review[0] + "..."
+print(reviews)
+
+
